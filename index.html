@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiryalaRaghunadh - Portfolio</title>
+    <link rel="icon" href="icon_top.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #000;
+            color: #ff0000;
+            padding: 2em 0;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #343a40;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #000;
+            padding: 0.8em 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #ff0000;
+        }
+
+
+        section {
+            padding: 3em;
+            margin: 2em;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #ff0000;
+            border-bottom: 2px solid #343a40;
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+        }
+
+        .icon {
+            margin-right: 0.5em;
+        }
+
+
+        .details {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+	
+         .show-details-btn {
+            background-color: #ff0000;
+            color: #fff;
+            border: ;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center; /* Center the button */
+            border-radius: 20px;
+        }
+
+	table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000;
+            color: #ff0000;
+        }
+        
+        .project-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .project-box {
+            flex: 0 0 30%; /* Adjust the width of each project box */
+            margin-bottom: 20px;
+            background-color: #343a40;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-box:hover {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        /* Your project-specific styles here */
+
+        /* Example styles, customize as needed */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .project-box {
+            background-color: #000;
+            padding: 0.5em;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            
+        }
+
+        .project-box:hover {
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            margin-bottom: 1.0em;
+            color: #ff0000
+        }
+
+        .project-description {
+            font-size: 1em;
+            color: #fff;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .project-links {
+            margin-top: 1em;
+        }
+
+        .project-links a {
+            color: #343a40;
+            text-decoration: none;
+            margin-right: 1em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .project-links a:hover {
+            color: #ff0000;
+        }
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skills-section {
+            padding: 3em;
+            margin: 2em;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #000;
+            color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill-card i {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .skill-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            font-size: 0.9em;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+	.detail-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .personal-details {
+            margin-top: 20px;
+        }
+        
+
+        
+        #contact {
+            padding: 3em;
+            margin: 2em;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            gap: 1em;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .profile-links a{
+            color: #fff;
+        }
+        .profile-links a:hover{
+            color: #ff0000;
+        }
+        .contact-links a:hover {
+            color: #ff0000;
+        }
+
+        .contact-links i {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        /* Back to Top Arrow Styles */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #fff;
+    color: #ff0000;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.back-to-top:hover {
+    background-color: #fff;
+}
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 93%;
+    z-index: 1000;
+    display: none; /* Initially hide the footer */
+}
+
+
+    </style>
+</head>
+
+<body>
+<header style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="raghunadh.png" alt="Your Name" style="border-radius: 50%; width: 200px; height: 200px; margin-bottom: 30px;">
+    <div>
+        <h1 style="color: #ff0000; margin:auto;">Miryala Raghunadh</h1>
+        <p>Python Developer <i class="fas fa-laptop-code"></i></p>
+    </div>
+</header>
+
+
+
+
+    <nav>
+        <a href="#about"><i class="fas fa-user"></i> About Me</a>
+        <a href="#resume"><i class="fas fa-file-alt"></i> Resume</a>
+        <a href="#projects"><i class="fas fa-code"></i> Projects</a>
+        <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2><i class="fas fa-info-circle icon"></i> About Me</h2>
+<p style="font-size: 1.2em; line-height: 1.6; text-align: justify; max-width: 1000px; margin: 0 auto;">
+        Hello there! I'm <span style="color: #ff0000; font-weight: bold;">Miryala Raghunadh</span>, a passionate developer with a love for all things Python. I'm very interested in the field of Cyber Security and always looking to learn more about it. I've got some serious skills when it comes to Machine Learning, which is such an exciting area to be in right now! In addition, I believe that my knowledge of Data Structures and Algorithms has helped me to improve my problem-solving abilities. It's amazing how coding can help us solve complex problems, don't you think?
+<br>
+<button class="show-details-btn" onclick="toggleDetails()">More Details</button>
+    </p>
+
+            <div class="details" id="details" style="text-align: justify; max-width: 1000px; margin: 0 auto;">
+                <h3 style="color: #ff0000;">EDUCATIONAL DETAILS</h3>
+		
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Institution</th>
+                            <th>Board</th>
+			    <th> Year of Passing</th>
+			    <th> Aggregate </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>B.Tech [Computer Science and Engineering (AIML)]</td>
+                            <td>JNTUH University College of Engineering Manthani</td>
+			    <td>JNTUH University</td>
+                            <td>2024</td>
+			    <td>7.6</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+			<tr>
+                            <td>Intermediate</td>
+                            <td>Sri Chaitanya Junior Kalasala</td>
+			    <td>Board of Intermediate Education Telangana</td>
+                            <td>2020</td>
+			    <td>98%</td>
+                        </tr>
+			<tr>
+                            <td>S.S.C</td>
+                            <td>Krishnaveni Talent School</td>
+			    <td>Board of Secondary Education Telangana</td>
+                            <td>2018</td>
+			    <td>9.7</td>
+                        </tr>
+                    </tbody>
+                </table>
+	<h3 style="color: #ff0000;"> PERSONAL DETAILS</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Father Name:</span>
+                    <p>Miryala Mahender</p>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Occupation:</span>
+                    <p>Weaver</p>
+                </div>
+		<div class="detail-row">
+                    <span class="detail-label">Birthday:</span>
+                    <p>March 2, 2023</p>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Address:</span>
+                    <p>Nalgonda, 508114</p>
+                </div>
+            <div class="detail-row">
+                <span class="detail-label">Languages Known:</span>
+                <p>Telugu, Hindi, English</p>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Maritial Status:</span>
+                <p>Single</p>
+            </div>
+            <h3 style="color: #ff0000;"> INTERESTS</h3>
+            <li>Ethical Hacking</li><br>
+            <li>Cricket</li><br>
+            <li>Chess</li>
+            </div>
+            <script>
+                function toggleDetails() {
+                    var details = document.getElementById("details");
+                    if (details.style.display === "" || details.style.display === "none") {
+                        details.style.display = "block";
+                    } else {
+                        details.style.display = "none";
+                    }
+                }
+            </script>
+            
+    </section>
+
+    <section id="resume">
+        <h2><i class="fas fa-file-alt icon"></i> Resume</h2>
+        <p><b>RESUME: </b></p>
+        <a href="MiryalaRaghunadh_sResume.pdf" download="MiryalaRaghunadh_sResume.pdf" target="_blank" style="color: #ff0000;">Download Resume</a>
+    </section>
+    
+
+    <section id="projects">
+        <h2><i class="fas fa-code icon"></i> Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-box">
+                <div class="project-content">
+                    <h3 class="project-title"> Beat Maker Using Python</h3>
+                    <p class="project-description">Developed a background music making app using the Pygame module in the Python programming language. 
+                        We can make music and save it in the system, 
+                        and we can also load existing files to continue generating.<br>
+                        <b style="color: #ff0000;"> Technologies Used:</b> Python, Pygame
+                    </p>
+                    <div class="project-links">
+                        <a href="#">Demo</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-box">
+                <div class="project-content">
+                    <h3 class="project-title">Ecommerce Data Extraction System</h3>
+                    <p class="project-description">Developed an awesome tool that scrapes data from dynamic shopping websites and presents it in a structured and
+                        easy-to-read format. It’s a game-changer for anyone who loves to shop online.
+                        • Automated browser with Selenium and displayed price and rating comparison visually using matplotlib
+                    <br>
+                    <b style="color: #ff0000;"> Technologies Used:</b> Python, Webscraping, Selenium, Streamlit
+                </p>
+                    <div class="project-links">
+                        <a href="#">Demo</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more project boxes as needed -->
+            <div class="project-box">
+                <div class="project-content">
+                    <h3 class="project-title">Data Visualization By generating Data</h3>
+                    <p class="project-description">Visualized the data by plotting and scattering points using python library matplotlib, generated data 
+                        and visualized the generated data by creating histograms using pygal library.
+                    <br>
+                    <b style="color: #ff0000;"> Technologies Used:</b> Python, matplotlib, pygal
+                </p>
+                    <div class="project-links">
+                        <a href="#">Demo</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2><i class="fas fa-cogs icon"></i> Skills</h2>
+
+        <!-- Frontend Skills -->
+        <h3 style="color: #ff0000;">Frontend</h3>
+        <div class="skills-list">
+
+            <!-- Skill 1 -->
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3 class="skill-title" style="color: #ff0000;">HTML5</h3>
+                <p class="skill-description">Semantic markup language used for web structure.</p>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3 class="skill-title" style="color: #ff0000;">CSS3</h3>
+                <p class="skill-description">Styling language for web presentation.</p>
+            </div>
+
+            <!-- Add more frontend skills as needed -->
+
+        </div>
+
+        <!-- Backend Skills -->
+        <h3 style="color: #ff0000;">Backend</h3>
+        <div class="skills-list">
+
+            <!-- Skill 3 -->
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3 class="skill-title" style="color: #ff0000;">Django/Flask</h3>
+                <p class="skill-description">Server-side Frameworks.</p>
+            </div>
+
+            <!-- Add more backend skills as needed -->
+
+        </div>
+
+        <!-- Machine Learning Skills -->
+        <h3 style="color: #ff0000;">Machine Learning</h3>
+        <div class="skills-list">
+
+            <!-- Skill 4 -->
+            <div class="skill-card">
+                <i class="fas fa-brain"></i>
+                <h3 class="skill-title" style="color: #ff0000;">Machine Learning</h3>
+                <p class="skill-description">Understanding of machine learning concepts.
+                    <li>Libraries: NumPy, Pandas, Scikit-learn, Tensorflow, matplotlib</li>
+                </p>
+            </div>
+
+            <!-- Add more ML skills as needed -->
+
+        </div>
+
+        <!-- Soft Skills -->
+        <h3 style="color: #ff0000;">Soft Skills</h3>
+        <div class="skills-list">
+
+            <!-- Skill 5 -->
+            <div class="skill-card">
+                <i class="far fa-smile"></i>
+                <h3 class="skill-title" style="color: #ff0000;">Communication</h3>
+                <p class="skill-description">Effective communication skills.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-users"></i>
+                <h3 class="skill-title" style="color: #ff0000;">Team Collaboration</h3>
+                <p class="skill-description">Proven ability to work seamlessly within a team, fostering collaboration and achieving shared goals.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chess-king"></i>
+                <h3 class="skill-title" style="color: #ff0000;">Leadership</h3>
+                <p class=""skill-description>Demonstrated leadership skills, guiding teams with a strategic vision towards successful project outcomes.</p>
+            </div>
+
+            <!-- Add more soft skills as needed -->
+
+        </div>
+
+    </section>
+    <section id="coding-profiles">
+        <h2><i class="fas fa-code icon"></i> Coding Profiles</h2>
+
+        <div class="profile-links">
+            <!-- GitHub Profile -->
+            <a href="https://leetcode.com/Ra9hunadh/" target="_blank">
+                <i class="fab fa-leanpub"></i>LeetCode - Ra9hunadh
+            </a>
+            <br>
+            <br>
+            <!-- HackerRank Profile -->
+            <a href="https://www.hackerrank.com/profile/miryalaraghu369" target="_blank">
+                <i class="fab fa-hackerrank"></i> HackerRank - miryalaraghu369
+            </a>
+
+            <!-- Add more profile links as needed -->
+        </div>
+    </section>
+ 
+    <section id="contact">
+        <h2><i class="fas fa-envelope icon"></i> Contact</h2>
+
+        <div class="contact-links">
+            <!-- Email -->
+            <a href="mailto:miryalaraghu369@gmail.com">
+                <i class="fas fa-envelope"></i> miryalaraghu369@gmail.com
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/miryala-raghunadh-b8aa74209/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+
+            <!-- Mobile Number -->
+            <a href="tel:+91 9550214233">
+                <i class="fas fa-phone"></i> +91 9550214233
+            </a>
+        </div>
+    </section>
+<!-- Back to Top Arrow -->
+<div id="back-to-top" class="back-to-top">
+    <script>
+        // JavaScript for Back to Top
+        window.addEventListener('scroll', function () {
+            var backToTop = document.getElementById('back-to-top');
+            var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    
+            if (scrollPosition > 300) { // Adjust this value based on when you want the arrow to appear
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+    <a href="#top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <footer style="align-content: center;">
+        <script>
+            // JavaScript to show the footer when the user scrolls down
+            window.addEventListener('scroll', function () {
+                var footer = document.querySelector('footer');
+                var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        
+                if (scrollPosition > 100) { // Adjust this value based on when you want the footer to appear
+                    footer.style.display = 'block';
+                } else {
+                    footer.style.display = 'none';
+                }
+            });
+        </script>
+        &copy; 2024 Miryala Raghunadh - Portfolio
+    </footer>
+</body>
+
+</html>
